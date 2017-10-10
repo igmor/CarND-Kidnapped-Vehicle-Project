@@ -241,4 +241,12 @@ inline bool read_landmark_data(std::string filename, std::vector<LandmarkObs>& o
 	return true;
 }
 
+inline const Map::single_landmark_s* get_landmark(int id, Map const& map_landmarks) {
+    for (int i = 0; i < map_landmarks.landmark_list.size(); i++) {
+        if (map_landmarks.landmark_list[i].id_i == id)
+            return &map_landmarks.landmark_list[i];
+    }
+    return NULL;
+}
+
 #endif /* HELPER_FUNCTIONS_H_ */
